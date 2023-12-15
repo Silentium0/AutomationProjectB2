@@ -29,12 +29,6 @@ public class DocuportUtils {
             case "client":
                 userName.sendKeys(DocuportConstants.USERNAME_CLIENT);
                 password.sendKeys(DocuportConstants.PASSWORD_DOCUPORT);
-                WebElement loginBUtton = driver.findElement(By.xpath("//button[@type='submit']"));
-                loginBUtton.click();
-                Thread.sleep(3000);
-                WebElement continueButton = driver.findElement(By.xpath("//button[@type='submit']"));
-                continueButton.click();
-                Thread.sleep(3000);
                 break;
             case "supervisor":
                 userName.sendKeys(DocuportConstants.USERNAME_SUPERVISOR);
@@ -52,6 +46,13 @@ public class DocuportUtils {
 
         }
         loginButton.click();
+
+        if (role.toLowerCase().equals("client")){
+            Thread.sleep(2500);
+            WebElement loginBUtton = driver.findElement(By.xpath("//button[@type='submit']"));
+            loginBUtton.click();
+
+        }
 
 
     }
