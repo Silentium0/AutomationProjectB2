@@ -19,10 +19,11 @@ public class DocuportUtils {
      */
 
     public static  void login(WebDriver driver,String role) throws InterruptedException {
-        driver.get("https://beta.docuport.app/");
-        WebElement userName = driver.findElement(By.xpath("//label[contains(text(), 'Username or email')]/following-sibling::input"));
-        WebElement password = driver.findElement(By.xpath("//input[@type='password']"));
-        WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
+        //driver.get("https://beta.docuport.app/");
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        WebElement userName =  Driver.getDriver().findElement(By.xpath("//label[contains(text(), 'Username or email')]/following-sibling::input"));
+        WebElement password =  Driver.getDriver().findElement(By.xpath("//input[@type='password']"));
+        WebElement loginButton =  Driver.getDriver().findElement(By.xpath("//button[@type='submit']"));
 
 
         switch (role.toLowerCase()){
@@ -49,7 +50,7 @@ public class DocuportUtils {
 
         if (role.toLowerCase().equals("client")){
             Thread.sleep(2500);
-            WebElement loginBUtton = driver.findElement(By.xpath("//button[@type='submit']"));
+            WebElement loginBUtton =  Driver.getDriver().findElement(By.xpath("//button[@type='submit']"));
             loginBUtton.click();
 
         }
@@ -65,11 +66,11 @@ public class DocuportUtils {
 
 
     public static void logOut(WebDriver driver) throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        WebElement userIcon = driver.findElement(By.xpath("//div[@class='v-avatar primary']"));
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        WebElement userIcon =  Driver.getDriver().findElement(By.xpath("//div[@class='v-avatar primary']"));
         userIcon.click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        WebElement logOut = driver.findElement(By.xpath("//span[contains(text(),'Log out')]"));
+        WebElement logOut =  Driver.getDriver().findElement(By.xpath("//span[contains(text(),'Log out')]"));
         logOut.click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
