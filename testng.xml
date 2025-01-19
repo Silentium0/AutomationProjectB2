@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/sergi/IdeaProjects/Automation">
+        <classes>
+            <class name="com.loop.test.day10_upload_download.T1_upload">
+                <methods>
+                    <include name="google_search"/>
+                    <include name="docuport_search"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
