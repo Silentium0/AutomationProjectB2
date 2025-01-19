@@ -1,9 +1,8 @@
-package com.loop.test.day5_checkBox_dropDown;
+package com.loop.test.day5_TestNG_checkBox_dropDown;
 
 import com.loop.test.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;

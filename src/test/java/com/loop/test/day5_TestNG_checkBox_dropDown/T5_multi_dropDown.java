@@ -1,4 +1,4 @@
-package com.loop.test.day5_checkBox_dropDown;
+package com.loop.test.day5_TestNG_checkBox_dropDown;
 
 import com.loop.test.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
@@ -66,7 +66,7 @@ public class T5_multi_dropDown {
             System.out.println(option.getText());
         }
 
-        dropdown.deselectAll();
+        //dropdown.deselectAll();
     }
 
 

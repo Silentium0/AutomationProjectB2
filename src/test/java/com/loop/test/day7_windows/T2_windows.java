@@ -30,17 +30,17 @@ public class T2_windows extends TestBase {
         ((JavascriptExecutor) driver).executeScript("window.open('http://etsy.com','_blank');");
         ((JavascriptExecutor) driver).executeScript("window.open('http://facebook.com','_blank');");
 
-//        Set<String> windowHandles = driver.getWindowHandles();
-//
-//        for (String window : windowHandles) {
-//            driver.switchTo().window(window);
-//            System.out.println("driver.getCurrentUrl() = " + driver.getCurrentUrl());
-//            if (driver.getCurrentUrl().toLowerCase().contains("google")) {
-//                break;
-//            }
-//        }
-        //BrowserUtils.switchWindowAndValidate(driver, "facebook.com", "facebook");
-        BrowserUtils.switchToWindow(driver,"Facebook");
+        Set<String> windowHandles = driver.getWindowHandles();
+
+        for (String window : windowHandles) {
+            driver.switchTo().window(window);
+            System.out.println("driver.getCurrentUrl() = " + driver.getCurrentUrl());
+            if (driver.getCurrentUrl().toLowerCase().contains("google")) {
+                break;
+            }
+        }
+        //BrowserUtils.switchWindowAndValidate(driver, "etsy.com", "etsy");
+         //  BrowserUtils.switchToWindow(driver,"Facebook");
     }
 
 

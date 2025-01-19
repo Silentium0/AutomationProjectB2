@@ -19,7 +19,7 @@ public class DocuportUtils {
      */
 
     public static  void login(WebDriver driver,String role) throws InterruptedException {
-        //driver.get("https://beta.docuport.app/");
+      // driver.get("https://beta.docuport.app/login?redirect=%2F");
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
         WebElement userName =  Driver.getDriver().findElement(By.xpath("//label[contains(text(), 'Username or email')]/following-sibling::input"));
         WebElement password =  Driver.getDriver().findElement(By.xpath("//input[@type='password']"));

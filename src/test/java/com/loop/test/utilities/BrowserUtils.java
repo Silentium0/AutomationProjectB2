@@ -12,6 +12,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.InputMismatchException;
 import java.util.Set;
 
 public class BrowserUtils {
@@ -164,6 +165,44 @@ public class BrowserUtils {
         } catch (InterruptedException e){
             e.printStackTrace();
         }
+    }
+
+    public static String returnAnyField(WebDriver driver , String cardNumber, String field   ){
+
+        WebElement element = null;
+        String xpath = "";
+
+        switch (field.toLowerCase()){
+            case "name":
+                xpath = "//td[text()='"+cardNumber+"']/preceding-sibling::td[9]";
+                element = driver.findElement(By.xpath(xpath));
+                break;
+            case "pizza type":
+                xpath = "//td[text()='"+cardNumber+"']/preceding-sibling::td[8]";
+                element = driver.findElement(By.xpath(xpath));
+                break;
+            case "amount":
+                xpath = "//td[text()='"+cardNumber+"']/preceding-sibling::td[7]";
+                element = driver.findElement(By.xpath(xpath));
+                break;
+            case "date":
+                xpath = "//td[text()='"+cardNumber+"']/preceding-sibling::td[6]";
+                element = driver.findElement(By.xpath(xpath));
+                break;
+            case "street":
+                xpath = "//td[text()='"+cardNumber+"']/preceding-sibling::td[5]";
+                element = driver.findElement(By.xpath(xpath));
+                break;
+            case "city":
+                xpath = "//td[text()='"+cardNumber+"']/preceding-sibling::td[4]";
+                element = driver.findElement(By.xpath(xpath));
+                break;
+
+            default: throw new InputMismatchException("No such Row"+field);
+        }
+
+
+        return element.getText();
     }
 
 

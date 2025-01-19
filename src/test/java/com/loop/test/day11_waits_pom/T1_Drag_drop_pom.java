@@ -62,6 +62,7 @@ public class T1_Drag_drop_pom {
                 //.pause(2000)
                 .perform();
         Assert.assertEquals(LoopPracticeDragDropPag.bigCircle.getText(),"Drop here.");
+
     }
     @AfterMethod
     public void tearDown(){

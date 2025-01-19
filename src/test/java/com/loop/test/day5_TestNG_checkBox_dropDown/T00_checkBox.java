@@ -1,7 +1,6 @@
-package com.loop.test.day5_checkBox_dropDown;
+package com.loop.test.day5_TestNG_checkBox_dropDown;
 
 import com.loop.test.utilities.WebDriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +29,6 @@ public class T00_checkBox {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebElement checkBox = driver.findElement(By.xpath("//input/following-sibling::text()[contains(.,'checkbox 1')]/preceding-sibling::input"));
-
         if (!checkBox.isSelected()){
             System.out.println("CheckBox is not selected");
         }else {
