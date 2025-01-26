@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class T1_alerts extends TestBase {
+public class T1_select extends TestBase {
 
 
     @Test
