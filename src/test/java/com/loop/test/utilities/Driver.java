@@ -34,11 +34,9 @@ public class Driver {
                 String browserType = ConfigurationReader.getProperty("browser");
                 switch (browserType.toLowerCase()) {
                     case "chrome":
-                        WebDriverManager.chromedriver().setup();
                         driver = new ChromeDriver();
                         break;
                     case "firefox":
-                        WebDriverManager.firefoxdriver().setup();
                         driver = new FirefoxDriver();
                         break;
                 }
