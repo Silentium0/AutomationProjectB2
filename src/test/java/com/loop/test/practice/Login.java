@@ -26,7 +26,7 @@ public class Login extends TestBase {
     @Test
     public void liginAndOut() throws InterruptedException {
         DocuportUtils.login(driver,"advisor");
-        DocuportUtils.logOut(driver);
+        //DocuportUtils.logOut(driver);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
