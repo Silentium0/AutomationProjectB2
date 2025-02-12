@@ -39,7 +39,7 @@ public class Alerts extends TestBase {
         WebElement alertJS = Driver.getDriver().findElement(By.xpath("//button[text()='Click for JS Alert']"));
         alertJS.click();
 
-        Alert js = driver.switchTo().alert();
+        Alert js = Driver.getDriver().switchTo().alert();
         js.accept();
     }
 

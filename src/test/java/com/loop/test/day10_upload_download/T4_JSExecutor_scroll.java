@@ -12,8 +12,9 @@ public class T4_JSExecutor_scroll {
 
     @Test
     public void etsy_scroll_test() throws InterruptedException {
-        Driver.getDriver().get(ConfigurationReader.getProperty("etsy"));
-        WebElement emailBox = Driver.getDriver().findElement(By.id("email-list-signup-email-input"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("loop"));
+        WebElement linc = Driver.getDriver().findElement(By.xpath("//a[@href='https://www.loopcamp.io/']"));
+
 
         // how to scroll to element
         // #1 use actions move to element
@@ -31,10 +32,11 @@ public class T4_JSExecutor_scroll {
         // js.executeScript("window.scroll(0, 5000)");
 
         // #4
-        js.executeScript("arguments[0].scrollIntoView(true)", emailBox);
-        js.executeScript("arguments[0].click", emailBox);
+        js.executeScript("arguments[0].scrollIntoView(true)", linc);
+        js.executeScript("arguments[0].click", linc);
         Thread.sleep(5000);
-        js.executeScript("window.scroll(0, 0)");
+       // js.executeScript("window.scroll(0, 0)");
+
 
 
     }

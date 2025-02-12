@@ -25,18 +25,18 @@ public class Login extends TestBase {
     }
     @Test
     public void liginAndOut() throws InterruptedException {
-        DocuportUtils.login(driver,"advisor");
+        DocuportUtils.login(Driver.getDriver(),"advisor");
         //DocuportUtils.logOut(driver);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        DocuportUtils.login(driver,"supervisor");
-        DocuportUtils.logOut(driver);
+        DocuportUtils.login(Driver.getDriver(),"supervisor");
+        DocuportUtils.logOut(Driver.getDriver());
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        DocuportUtils.login(driver,"employee");
-        DocuportUtils.logOut(driver);
+        DocuportUtils.login(Driver.getDriver(),"employee");
+        DocuportUtils.logOut(Driver.getDriver());
 
 
     }

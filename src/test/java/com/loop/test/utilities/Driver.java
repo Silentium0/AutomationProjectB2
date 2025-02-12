@@ -18,7 +18,7 @@ public class Driver {
     static - run before everything else and also use in static method
      */
 
-        private static WebDriver driver;
+        public static WebDriver driver;
 
     /*
     reusable method that will return the same driver instance every time called
