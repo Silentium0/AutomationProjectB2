@@ -29,8 +29,8 @@ public class Upload {
         WebElement submit = Driver.getDriver().findElement(By.xpath("//button[@id='submitbutton']"));
         submit.click();
         WebElement successMessage = Driver.getDriver().findElement(By.xpath("//h3[@id='res']"));
-        String expected = "1 file\nhas been successfully uploaded.";
-        assertEquals(expected, successMessage.getText(), "Actual does not match the expected");
+        String expected = "1 filehas been successfully uploaded.";
+        assertEquals(expected, successMessage.getText());
 
 
     }

@@ -24,7 +24,7 @@ public class T3_dynamic_loading1 {
 
     @Test
     public void dynamic_loading_1(){
-        BrowserUtils.loopLinkClick("Dynamic Loading");
+        BrowserUtils.click("Dynamic Loading");
         BrowserUtils.waitForClickable(loopPracticeDynamicLoading1.dynamicLoading, 5).click();
         BrowserUtils.waitForClickable(loopPracticeDynamicLoading1.startButton, 5).click();
         BrowserUtils.waitForInVisibility(loopPracticeDynamicLoading1.loadingBar, 10);
@@ -33,6 +33,8 @@ public class T3_dynamic_loading1 {
         loopPracticeDynamicLoading1.password.sendKeys(ConfigurationReader.getProperty("dynamicLoading.incorrectPassword"));
         loopPracticeDynamicLoading1.submit.click();
         loopPracticeDynamicLoading1.errorMessage.isDisplayed();
+        Assert.assertEquals(loopPracticeDynamicLoading1.errorMessage.getText(),"Your username or password is invalid!");
+
     }
 
 
