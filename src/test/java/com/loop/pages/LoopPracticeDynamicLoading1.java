@@ -9,7 +9,7 @@ public class LoopPracticeDynamicLoading1 {
 
 
 
-    @FindBy(xpath = "//a[@href='dynamic_loading/1.html']")
+    @FindBy(xpath = "//a[@href='dynamic_loading/3.html']")
     public WebElement dynamicLoading;
 
 

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -261,7 +262,8 @@ public class BrowserUtils {
 
     }
     public static void waiteForVIN(WebElement element, int time){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(time));
+        WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(time));
         wait.until(ExpectedConditions.invisibilityOf(element));
 
     }

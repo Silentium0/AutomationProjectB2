@@ -5,39 +5,71 @@ import com.loop.test.utilities.DocuportConstants;
 import com.loop.test.utilities.DocuportUtils;
 import com.loop.test.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Set;
 
-public class Login extends TestBase {
+public class Login {
+
+    Set<Cookie> cookies;
+    public WebDriver driver;
+
+    @BeforeClass
+    public void setUp() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
     @Test
-    public void login(){
-        Driver.getDriver().get("https://beta.docuport.app/login?redirect=%2F");
-        WebElement userName = Driver.getDriver().findElement(By.xpath("//label[text()='Username or email']/following-sibling::input"));
-        WebElement password = Driver.getDriver().findElement(By.xpath("//label[text()='Password']/following-sibling::input"));
-        WebElement login = Driver.getDriver().findElement(By.xpath("//span[normalize-space(text())='Log in']"));
+    public void loginFirst() {
+        driver.get("https://beta.docuport.app/login?redirect=%2F");
 
-        userName.sendKeys(DocuportConstants.USERNAME_CLIENT);
-        password.sendKeys(DocuportConstants.PASSWORD_DOCUPORT);
+        WebElement userName = driver.findElement(By.xpath("//label[text()='Username or email']/following-sibling::input"));
+        WebElement password = driver.findElement(By.xpath("//label[text()='Password']/following-sibling::input"));
+        WebElement login = driver.findElement(By.xpath("//span[normalize-space(text())='Log in']"));
+
+        userName.sendKeys("b1g3_advisor@gmail.com");
+        password.sendKeys("Group3");
         login.click();
+
+
+        cookies = driver.manage().getCookies();
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie);
+        }
     }
-    @Test
-    public void liginAndOut() throws InterruptedException {
-        DocuportUtils.login(Driver.getDriver(),"advisor");
-        //DocuportUtils.logOut(driver);
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    @Test(dependsOnMethods = "loginFirst")
+    public void loginWithCookie() {
+        driver.get("https://beta.docuport.app/login?redirect=%2F");
 
-        DocuportUtils.login(Driver.getDriver(),"supervisor");
-        DocuportUtils.logOut(Driver.getDriver());
+        for (Cookie cookie : cookies) {
+            driver.manage().addCookie(cookie);
+        }
 
-        Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        DocuportUtils.login(Driver.getDriver(),"employee");
-        DocuportUtils.logOut(Driver.getDriver());
-
-
+        driver.navigate().refresh();
+        // Validate user is logged in (optional)
     }
+
+
+
+
+
+
+
+
 }
