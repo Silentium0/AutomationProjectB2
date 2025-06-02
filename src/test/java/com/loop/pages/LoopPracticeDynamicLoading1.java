@@ -9,7 +9,7 @@ public class LoopPracticeDynamicLoading1 {
 
 
 
-    @FindBy(xpath = "//a[@href='dynamic_loading/1.html']")
+    @FindBy(xpath = "//a[@href='dynamic_loading/3.html']")
     public WebElement dynamicLoading;
 
 
@@ -28,7 +28,7 @@ public class LoopPracticeDynamicLoading1 {
     @FindBy(xpath = "//button[.='Submit']")
     public WebElement submit;
 
-    @FindBy(id = "flash-messages")
+    @FindBy(xpath = "//div[contains(text(),'Your username or password is invalid!')]")
     public WebElement errorMessage;
 
     public LoopPracticeDynamicLoading1() {

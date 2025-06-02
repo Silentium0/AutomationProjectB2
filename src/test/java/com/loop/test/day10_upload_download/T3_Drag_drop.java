@@ -5,6 +5,7 @@ import com.loop.test.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class T3_Drag_drop {
@@ -39,6 +40,10 @@ public class T3_Drag_drop {
 
         WebElement creditAmount = Driver.getDriver().findElement(By.xpath(" //ol[@id='amt8']"));
         actions.dragAndDrop(drugMoney,creditAmount).perform();
+
+        WebElement perfect = Driver.getDriver().findElement(By.xpath("//a[text()='Perfect!']"));
+
+        Assert.assertEquals(perfect.getText(),"Perfect!");
 
 
 

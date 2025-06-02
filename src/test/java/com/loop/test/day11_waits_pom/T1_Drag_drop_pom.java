@@ -39,7 +39,7 @@ public class T1_Drag_drop_pom {
 
      */
         LoopPracticeDragDropPag   LoopPracticeDragDropPag;
-         Actions actions;
+        Actions actions;
 
 
     @BeforeMethod
@@ -56,6 +56,8 @@ public class T1_Drag_drop_pom {
     }
     @Test
     public void drop_here(){
+        Driver.getDriver().get("https://loopcamp.vercel.app/drag-and-drop-circles.html");
+
         actions.moveToElement(LoopPracticeDragDropPag.smallCircle)
                 .clickAndHold()
                 .moveByOffset(100,100)

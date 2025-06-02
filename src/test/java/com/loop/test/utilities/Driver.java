@@ -18,7 +18,7 @@ public class Driver {
     static - run before everything else and also use in static method
      */
 
-        private static WebDriver driver;
+        public static WebDriver driver;
 
     /*
     reusable method that will return the same driver instance every time called
@@ -34,11 +34,9 @@ public class Driver {
                 String browserType = ConfigurationReader.getProperty("browser");
                 switch (browserType.toLowerCase()) {
                     case "chrome":
-                        WebDriverManager.chromedriver().setup();
                         driver = new ChromeDriver();
                         break;
                     case "firefox":
-                        WebDriverManager.firefoxdriver().setup();
                         driver = new FirefoxDriver();
                         break;
                 }

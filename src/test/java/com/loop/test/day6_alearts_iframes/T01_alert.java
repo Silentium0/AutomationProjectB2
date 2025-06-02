@@ -1,6 +1,7 @@
 package com.loop.test.day6_alearts_iframes;
 
 import com.loop.test.base.TestBase;
+import com.loop.test.utilities.Driver;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -40,15 +41,15 @@ public class T01_alert extends TestBase {
 
     @Test
     public  void javaAlert(){
-        driver.get("https://loopcamp.vercel.app/javascript-alerts.html");
-        WebElement clickForJS = driver.findElement(By.xpath(" //button[text()='Click for JS Alert']"));
+        Driver.getDriver().get("https://loopcamp.vercel.app/javascript-alerts.html");
+        WebElement clickForJS = Driver.getDriver().findElement(By.xpath(" //button[text()='Click for JS Alert']"));
         clickForJS.click();
 
 
-        Alert alert = driver.switchTo().alert();
+        Alert alert = Driver.getDriver().switchTo().alert();
         alert.accept();
 
-        WebElement successMassageForInformation = driver.findElement(By.xpath("//p[@id='result']"));
+        WebElement successMassageForInformation = Driver.getDriver().findElement(By.xpath("//p[@id='result']"));
         String actual = "You successfully clicked an alert";
         String expected = successMassageForInformation.getText();
         Assert.assertEquals(actual,expected,"TEST FAIL");
@@ -58,24 +59,24 @@ public class T01_alert extends TestBase {
 
     @Test
     public void confirmationAlert(){
-        driver.get("https://loopcamp.vercel.app/javascript-alerts.html");
-        WebElement clickFroJSConfirm = driver.findElement(By.xpath("//button[@onclick='jsConfirm()']"));
+        Driver.getDriver().get("https://loopcamp.vercel.app/javascript-alerts.html");
+        WebElement clickFroJSConfirm = Driver.getDriver().findElement(By.xpath("//button[@onclick='jsConfirm()']"));
         clickFroJSConfirm.click();
-        driver.switchTo().alert().accept();
-        WebElement successMassageForInformation = driver.findElement(By.xpath("//p[@id='result']"));
+        Driver.getDriver().switchTo().alert().accept();
+        WebElement successMassageForInformation = Driver.getDriver().findElement(By.xpath("//p[@id='result']"));
         String expected = "You clicked: Ok";
         String actual =  successMassageForInformation.getText();
         Assert.assertEquals(actual,expected,"TEST FAIL");
 
         clickFroJSConfirm.click();
-        driver.switchTo().alert().accept();
+        Driver.getDriver().switchTo().alert().accept();
         actual = successMassageForInformation.getText();
         expected = "You clicked: Ok";
         Assert.assertEquals(actual,expected,"TEST FAIL");
 
 
         clickFroJSConfirm.click();
-        driver.switchTo().alert().dismiss();
+        Driver.getDriver().switchTo().alert().dismiss();
         actual = successMassageForInformation.getText();
         expected = "You clicked: Cancel";
         Assert.assertEquals(actual,expected,"TEST FAIL");
@@ -87,17 +88,17 @@ public class T01_alert extends TestBase {
 
     @Test
     public void promptAlert() throws InterruptedException {
-        driver.get("https://loopcamp.vercel.app/javascript-alerts.html");
-        WebElement clickJSPrompt = driver.findElement(By.xpath("//button[contains(text(),'Click for JS Prompt')]"));
+        Driver.getDriver().get("https://loopcamp.vercel.app/javascript-alerts.html");
+        WebElement clickJSPrompt = Driver.getDriver().findElement(By.xpath("//button[contains(text(),'Click for JS Prompt')]"));
         clickJSPrompt.click();
         String text = "Loop Academy";
 //        driver.switchTo().alert().sendKeys(text);
 //        driver.switchTo().alert().accept();
-        Alert alert = driver.switchTo().alert();
+        Alert alert = Driver.getDriver().switchTo().alert();
         alert.sendKeys(text);
         alert.accept();
 
-        WebElement successMessagePromptAlert = driver.findElement(By.xpath("//p[@id='result']"));
+        WebElement successMessagePromptAlert = Driver.getDriver().findElement(By.xpath("//p[@id='result']"));
         String actual = successMessagePromptAlert.getText();
         String expected = "You entered: " + text;
         Assert.assertEquals(actual, expected, "actual does not match the expected");
